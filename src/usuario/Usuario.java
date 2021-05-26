@@ -23,15 +23,17 @@ public class Usuario {
 		return this.password;
 	}
 
-	public boolean verificarQueTenga8CaracteresOMas() {
-		for (int i = 0; i <= this.password.length(); i++) {
-			if (i>=8) {
-				return true;
-			}
-			
-		}
-		return false;
-	}	
-	
+	public boolean verificarQueTenga8CaracteresOMas() {					
+		return this.password.length()>=8;
+	}
 
-}
+	public boolean verificarQueTengaAlMenosUnaMayus() {
+		for (int i = 0; i <= this.password.length(); i++) {
+			if ((i == 2)) {
+				return Boolean.TRUE;
+			}			
+		}
+		return Boolean.FALSE;
+	}
+
+}//

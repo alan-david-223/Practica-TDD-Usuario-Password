@@ -21,35 +21,50 @@ public class UsuarioTest {
 	@Test
 	public void testQueCreaUnUsuario() {
 		//preparación (dado / given)		
-		String password = "asd123";
-		String nombre = "Nombrerto Apellidez";
+			String password = "asd123";
+			String nombre = "Nombrerto Apellidez";
 		//ejecución (cuando / when)
-		Usuario user = whenCreoUnUsuario(nombre, password);
+			Usuario user = whenCreoUnUsuario(nombre, password);
 		//validación - constatación (entonces / then)
-		assertNotNull(user);	
+			assertNotNull(user);	
 		
 	}
 	
 	@Test
-	public void testQueVerificaQueElPasswordTenga8Caracteres() {
+	public void testQueVerificaQueElPasswordTenga8CaracteresOMas() {
 		//preparación
-		String password = "asd123";
-		String nombre = "Nombrerto Apellidez";	
+			String password = "asdasd123";
+			String nombre = "Nombrerto Apellidez";	
 		//ejecución
-		Usuario user = whenCreoUnUsuario(nombre, password);
+			Usuario user = whenCreoUnUsuario(nombre, password);
 		//validación - constatación (entonces / then)
-		thenVerificoQueTenga8OMásCaracteres(user);
-		
+			thenVerificoQueTenga8OMásCaracteres(user);		
+	}
+	
+	@Test
+	public void testQueVerificaQueExista1MayusculaOMas() {
+		//preparación
+			String password = "asdasd123";
+			String nombre = "Nombrerto Apellidez";	
+		//ejecución
+			Usuario user = whenCreoUnUsuario(nombre, password);
+		//validación - constatación (entonces / then)
+			thenVerificoTengaAlMenosUnaMayus(user);		
 	}
 
+
+
 	private Usuario whenCreoUnUsuario(String nombre, String password) {
-		return new Usuario(nombre, password);
-				
+		return new Usuario(nombre, password);				
 	}	
 
 	
 	private void thenVerificoQueTenga8OMásCaracteres(Usuario user) {
-		Assert.assertTrue(user.verificarQueTenga8CaracteresOMas());
+		Assert.assertTrue(user.verificarQueTenga8CaracteresOMas());		
+	}
+	
+	private void thenVerificoTengaAlMenosUnaMayus(Usuario user) {
+		Assert.assertTrue(user.verificarQueTengaAlMenosUnaMayus());
 		
 	}
 
