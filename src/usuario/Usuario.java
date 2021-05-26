@@ -21,6 +21,16 @@ public class Usuario {
 
 	public String getPassword() {
 		return this.password;
+	}
+
+	public boolean verificarQueTenga8CaracteresOMas() {
+		for (int i = 0; i <= this.password.length(); i++) {
+			if (i>=8) {
+				return true;
+			}
+			
+		}
+		return false;
 	}	
 	
 

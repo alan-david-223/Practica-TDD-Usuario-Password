@@ -17,18 +17,16 @@ import org.junit.Test;
 
 public class UsuarioTest {
 	
-	private Usuario user;
 
 	@Test
 	public void testQueCreaUnUsuario() {
-		//preparación (dado / given)
+		//preparación (dado / given)		
 		String password = "asd123";
 		String nombre = "Nombrerto Apellidez";
 		//ejecución (cuando / when)
 		Usuario user = whenCreoUnUsuario(nombre, password);
 		//validación - constatación (entonces / then)
-		thenVerificarQueTengaPassword();
-		
+		assertNotNull(user);	
 		
 	}
 	
@@ -40,22 +38,18 @@ public class UsuarioTest {
 		//ejecución
 		Usuario user = whenCreoUnUsuario(nombre, password);
 		//validación - constatación (entonces / then)
-		thenVerificoQueTenga8OMásCaracteres();
+		thenVerificoQueTenga8OMásCaracteres(user);
 		
 	}
 
 	private Usuario whenCreoUnUsuario(String nombre, String password) {
-		return user = new Usuario(nombre, password);
+		return new Usuario(nombre, password);
 				
-	}
+	}	
+
 	
-	private void thenVerificarQueTengaPassword() {
-		Assert.assertNotNull(user.getPassword());
-		
-	}
-	
-	private void thenVerificoQueTenga8OMásCaracteres() {
-		// TODO Auto-generated method stub
+	private void thenVerificoQueTenga8OMásCaracteres(Usuario user) {
+		Assert.assertTrue(user.verificarQueTenga8CaracteresOMas());
 		
 	}
 
