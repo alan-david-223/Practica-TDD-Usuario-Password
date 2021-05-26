@@ -44,7 +44,7 @@ public class UsuarioTest {
 	@Test
 	public void testQueVerificaQueExista1MayusculaOMas() {
 		//preparación
-			String password = "asdasd123";
+			String password = "asdasD123";
 			String nombre = "Nombrerto Apellidez";	
 		//ejecución
 			Usuario user = whenCreoUnUsuario(nombre, password);

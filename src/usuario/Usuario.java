@@ -29,7 +29,7 @@ public class Usuario {
 
 	public boolean verificarQueTengaAlMenosUnaMayus() {
 		for (int i = 0; i <= this.password.length(); i++) {
-			if ((i == 2)) {
+			if ((Character.isUpperCase(this.password.charAt(i)))) {
 				return Boolean.TRUE;
 			}			
 		}
