@@ -55,11 +55,25 @@ public class UsuarioTest {
 	@Test
 	public void testQueVerificaQueExista1MinusculaOMas() {
 		//preparación
+			String password = "asdasD123";
+			String nombre = "Nombrerto Apellidez";	
+		//ejecución
+			Usuario user = whenCreoUnUsuario(nombre, password);
+		//validación - constatación (entonces / then)
+			thenVerificoTengaAlMenosUnaMinus(user);	
+	}
+	
+	@Test
+	public void testQueVerificaTodasLasCondicionesDeLaPassword() {
+		//preparación
 		String password = "asdasD123";
 		String nombre = "Nombrerto Apellidez";	
 	//ejecución
 		Usuario user = whenCreoUnUsuario(nombre, password);
 	//validación - constatación (entonces / then)
+		assertNotNull(user);	
+		thenVerificoQueTenga8OMásCaracteres(user);
+		thenVerificoTengaAlMenosUnaMayus(user);	
 		thenVerificoTengaAlMenosUnaMinus(user);	
 	}
 
