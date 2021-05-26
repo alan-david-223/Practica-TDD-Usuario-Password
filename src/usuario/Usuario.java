@@ -36,4 +36,13 @@ public class Usuario {
 		return Boolean.FALSE;
 	}
 
+	public boolean verificarQueTengaAlMenosUnaMinus() {
+		for (int i = 0; i <= this.password.length(); i++) {
+			if ((Character.isLowerCase(this.password.charAt(i)))) {
+				return Boolean.TRUE;
+			}			
+		}
+		return Boolean.FALSE;
+	}
+
 }//

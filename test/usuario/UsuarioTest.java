@@ -51,8 +51,19 @@ public class UsuarioTest {
 		//validación - constatación (entonces / then)
 			thenVerificoTengaAlMenosUnaMayus(user);		
 	}
+	
+	@Test
+	public void testQueVerificaQueExista1MinusculaOMas() {
+		//preparación
+		String password = "asdasD123";
+		String nombre = "Nombrerto Apellidez";	
+	//ejecución
+		Usuario user = whenCreoUnUsuario(nombre, password);
+	//validación - constatación (entonces / then)
+		thenVerificoTengaAlMenosUnaMinus(user);	
+	}
 
-
+	
 
 	private Usuario whenCreoUnUsuario(String nombre, String password) {
 		return new Usuario(nombre, password);				
@@ -64,7 +75,12 @@ public class UsuarioTest {
 	}
 	
 	private void thenVerificoTengaAlMenosUnaMayus(Usuario user) {
-		Assert.assertTrue(user.verificarQueTengaAlMenosUnaMayus());
+		
+		
+	}
+	
+	private void thenVerificoTengaAlMenosUnaMinus(Usuario user) {
+		Assert.assertTrue(user.verificarQueTengaAlMenosUnaMinus());
 		
 	}
 
