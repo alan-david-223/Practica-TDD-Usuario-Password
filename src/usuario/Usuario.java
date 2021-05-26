@@ -11,9 +11,16 @@ Condiciones para que una password sea fuerte:
 package usuario;
 
 public class Usuario {
+	String nombre;
+	String password;
 
 	public Usuario(String nombre, String password) {
-		// TODO Auto-generated constructor stub
+		this.nombre = nombre;
+		this.password = password;
+	}
+
+	public String getPassword() {
+		return this.password;
 	}	
 	
 

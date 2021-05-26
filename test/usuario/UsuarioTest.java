@@ -12,31 +12,49 @@ package usuario;
 
 import static org.junit.Assert.*;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 public class UsuarioTest {
 	
-	private Usuario user1234;
+	private Usuario user;
 
 	@Test
 	public void testQueCreaUnUsuario() {
 		//preparación (dado / given)
 		String password = "asd123";
-		Usuario user = whenCreoUnUsuario();
+		String nombre = "Nombrerto Apellidez";
 		//ejecución (cuando / when)
-		
+		Usuario user = whenCreoUnUsuario(nombre, password);
 		//validación - constatación (entonces / then)
 		thenVerificarQueTengaPassword();
 		
 		
 	}
+	
+	@Test
+	public void testQueVerificaQueElPasswordTenga8Caracteres() {
+		//preparación
+		String password = "asd123";
+		String nombre = "Nombrerto Apellidez";	
+		//ejecución
+		Usuario user = whenCreoUnUsuario(nombre, password);
+		//validación - constatación (entonces / then)
+		thenVerificoQueTenga8OMásCaracteres();
+		
+	}
 
 	private Usuario whenCreoUnUsuario(String nombre, String password) {
-		return user1234 = new Usuario(nombre, password);
+		return user = new Usuario(nombre, password);
 				
 	}
 	
 	private void thenVerificarQueTengaPassword() {
+		Assert.assertNotNull(user.getPassword());
+		
+	}
+	
+	private void thenVerificoQueTenga8OMásCaracteres() {
 		// TODO Auto-generated method stub
 		
 	}
